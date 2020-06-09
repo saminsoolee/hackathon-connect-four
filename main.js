@@ -6,16 +6,16 @@ var gridArray = [];
 var container = document.querySelector('div.container');
 var buttonContainer = document.querySelector('div.buttonContainer');
 var reset = document.getElementById('reset');
-var timer = document.querySelector("h1.time");
+var timer = document.querySelector('h1.time');
 var turnTime = 20;
 
 reset.addEventListener('click', resetGame);
 
-var countdown = setInterval(handleTime,1000);
+var countdown = setInterval(handleTime, 1000);
 
-function handleTime(){
-	if (turnTime===0){
-		error.textContent = currentPlayer + " has been skipped";
+function handleTime() {
+	if (turnTime === 0) {
+		error.textContent = currentPlayer + ' has been skipped';
 		clearInterval(countdown);
 
 		if (currentPlayer == 'Red') {
@@ -24,9 +24,9 @@ function handleTime(){
 		} else {
 			currentPlayer = 'Red';
 		}
-		timer.textContent=20;
-		turnTime=20;
-	}else{
+		timer.textContent = 20;
+		turnTime = 20;
+	} else {
 		turnTime--;
 		timer.textContent--;
 	}
@@ -54,7 +54,9 @@ for (var i = 0; i < column; i++) {
 }
 
 function addTile() {
-	if(countdown != null) clearInterval(countdown); countdown=null; turnTime=20;
+	if (countdown != null) clearInterval(countdown);
+	countdown = null;
+	turnTime = 20;
 	countdown = setInterval(handleTime, 1000);
 	error.textContent = '';
 	var currCol = event.currentTarget.getAttribute('col'); //column
@@ -173,7 +175,7 @@ function checkDiagonalLeft(currentRow, currentCol) {
 
 	console.log('current row is', currentRow);
 	console.log('current col is ', col);
-	for (var k = 0; k < maxRow; k++) {
+	for (var k = currentRow; k < maxRow; k++) {
 		if (gridArray[k][col] !== null) {
 			//if empty, stop checking
 			if (gridArray[k][col] == currentPlayer) {
@@ -186,8 +188,8 @@ function checkDiagonalLeft(currentRow, currentCol) {
 			} else {
 				localMax = 0;
 			}
-			col--;
 		}
+		col--;
 	} // bottom right to top left
 }
 
