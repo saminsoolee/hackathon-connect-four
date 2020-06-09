@@ -54,7 +54,7 @@ button {
 	box-shadow: 5px 5px black;
 }
 
-.red {
+.Red {
 	background-color: crimson;
 	background-image: url("charmander.png");
 	background-position:center;
@@ -62,7 +62,7 @@ button {
 	background-size:contain;
 }
 
-.yellow {
+.Yellow {
 	background-color: yellow;
 	background-image: url("pikachu.png");
 	background-position:center;
