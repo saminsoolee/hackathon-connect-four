@@ -122,15 +122,14 @@ function checkDiagonal(currentRow, currentCol) {
 			//if empty, stop checking
 			if (gridArray[k][col] == currentPlayer) {
 				localMax++;
-				col++;
 				if (localMax === 4) {
 					document.getElementById('error').textContent = currentPlayer + 'player wins!';
 					return;
 				}
 			} else {
 				localMax = 0;
-				col++;
 			}
 		}
 	} // bottom left to top right
+	col++;
 }
