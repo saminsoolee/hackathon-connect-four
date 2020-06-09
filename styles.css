@@ -34,6 +34,12 @@ button {
 	margin: 10px;
 	box-shadow: 5px 5px black;
 	font-weight: bolder;
+	width: 800px;
+}
+
+button {
+	width: 99px;
+	margin: 10px;
 }
 
 .spot {
