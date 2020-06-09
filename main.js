@@ -1,5 +1,5 @@
 var maxRow = 6;
-var column = 7; //max
+var maxCol = 7; //max
 var error = document.getElementById('error');
 var currentPlayer = 'Red'; //Yellow
 var gridArray = [];
@@ -29,7 +29,7 @@ function handleTime() {
 
 for (var i = maxRow - 1; i >= 0; i--) {
 	gridArray[i] = [];
-	for (var j = 0; j < column; j++) {
+	for (var j = 0; j < maxCol; j++) {
 		//0,0 is bottom left
 		var spot = document.createElement('div');
 		spot.classList.add('col-' + j);
@@ -40,7 +40,7 @@ for (var i = maxRow - 1; i >= 0; i--) {
 	}
 }
 
-for (var i = 0; i < column; i++) {
+for (var i = 0; i < maxCol; i++) {
 	var button = document.createElement('button');
 	button.textContent = ' ' + i;
 	button.setAttribute('col', i);
@@ -55,12 +55,12 @@ function addTile() {
 	timer.textContent = 20;
 	countdown = setInterval(handleTime, 1000);
 	error.textContent = '';
-	var currCol = event.currentTarget.getAttribute('col'); //column
+	var currCol = event.currentTarget.getAttribute('col'); //maxCol
 	//console.log(event.currentTarget.ge//tAttribute('col'));
-	for (var rowNum = 0; rowNum < column; rowNum++) {
-		// find the first empty row in the column
+	for (var rowNum = 0; rowNum < maxCol; rowNum++) {
+		// find the first empty row in the maxCol
 		if (rowNum == 6) {
-			error.textContent = 'Column is full, try again';
+			error.textContent = 'maxCol is full, try again';
 			return;
 		}
 		if (gridArray[rowNum][currCol] === null) {
@@ -107,7 +107,7 @@ function checkWin(rowNum, col) {
 
 	//   check horizontally
 	localMax = 0;
-	for (var j = 0; j < column; j++) {
+	for (var j = 0; j < maxCol; j++) {
 		if (gridArray[currentRow][j] !== null) {
 			//if empty, stop checking
 			if (gridArray[currentRow][j] == currentPlayer) {
@@ -167,7 +167,7 @@ function checkDiagonalLeft(currentRow, currentCol) {
 	var localMax = 0;
 	var col = currentCol;
 
-	while (col !== column && currentRow !== 0) {
+	while (col !== maxCol && currentRow !== 0) {
 		currentRow--;
 		col++;
 	}
@@ -197,7 +197,7 @@ function resetGame() {
 	document.getElementById('error').textContent = '';
 	for (var i = maxRow - 1; i >= 0; i--) {
 		gridArray[i] = [];
-		for (var j = 0; j < column; j++) {
+		for (var j = 0; j < maxCol; j++) {
 			//0,0 is bottom left
 
 			gridArray[i][j] = null; //internal grid
