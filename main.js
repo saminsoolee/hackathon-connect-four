@@ -1,7 +1,7 @@
 var maxRow = 6;
 var column = 7; //max
 var error = document.getElementById('error');
-var currentPlayer = 'red'; //yellow
+var currentPlayer = 'Red'; //Yellow
 var gridArray = [];
 var container = document.querySelector('div.container');
 var buttonContainer = document.querySelector('div.buttonContainer');
@@ -45,11 +45,11 @@ function addTile() {
 			//if (checkWin(rowNum, currCol)){
 			//    break;
 			//}
-			if (currentPlayer == 'red') {
-				//change turn, first player is always red
-				currentPlayer = 'yellow';
+			if (currentPlayer == 'Red') {
+				//change turn, first player is always Red
+				currentPlayer = 'Yellow';
 			} else {
-				currentPlayer = 'red';
+				currentPlayer = 'Red';
 			}
 			document.getElementById('currentPlayer').textContent = 'Current Player: ' + currentPlayer;
 			break; // if value is assigned to tile, break out of loop
@@ -166,7 +166,7 @@ function checkDiagonalLeft(currentRow, currentCol) {
 
 function resetGame() {
 	document.getElementById('currentPlayer').textContent = 'Current Player: ';
-	currentPlayer = 'red';
+	currentPlayer = 'Red';
 	document.getElementById('error').textContent = '';
 	for (var i = maxRow - 1; i >= 0; i--) {
 		gridArray[i] = [];
@@ -178,8 +178,8 @@ function resetGame() {
 	}
 	var tiles = container.children;
 	for (var i = 0; i < tiles.length; i++) {
-		tiles[i].classList.remove('red');
-		tiles[i].classList.remove('yellow');
+		tiles[i].classList.remove('Red');
+		tiles[i].classList.remove('Yellow');
 	}
 	document.getElementById('modalContainer').classList.add('hidden');
 }
