@@ -1,5 +1,5 @@
 var maxRow = 6;
-var column = 7;//max
+var column = 7; //max
 var error = document.getElementById('error');
 var currentPlayer = 'red'; //yellow
 var gridArray = [];
@@ -103,13 +103,12 @@ function checkWin(rowNum, col) {
 	}
 	checkDiagonalRight(currentRow, currentCol);
 	checkDiagonalLeft(currentRow, currentCol);
-
 }
 
 function checkDiagonalRight(currentRow, currentCol) {
 	var localMax = 0;
 	var col = currentCol;
-	while(currentRow!==0&&col!==0){
+	while (currentRow !== 0 && col !== 0) {
 		currentRow--;
 		col--;
 	}
@@ -132,30 +131,28 @@ function checkDiagonalRight(currentRow, currentCol) {
 	} // bottom left to top right
 }
 
-function checkDiagonalLeft(currentRow,currentCol) {
+function checkDiagonalLeft(currentRow, currentCol) {
 	var localMax = 0;
 	var col = currentCol;
 
-	while(col!==column&&currentRow!==0){
+	while (col !== column && currentRow !== 0) {
 		currentRow--;
-	 	col++;
+		col++;
 	}
-	console.log('current row is', currentRow);
-	console.log("current col is ", col);
-	for (var k = 0; k < maxRow; k++) {
 
+	console.log('current row is', currentRow);
+	console.log('current col is ', col);
+	for (var k = 0; k < maxRow; k++) {
 		if (gridArray[k][col] !== null) {
 			//if empty, stop checking
 			if (gridArray[k][col] == currentPlayer) {
 				localMax++;
-
 				if (localMax === 4) {
 					error.textContent = currentPlayer + 'player wins!';
 					return;
 				}
 			} else {
 				localMax = 0;
-
 			}
 			col--;
 		}
@@ -163,14 +160,13 @@ function checkDiagonalLeft(currentRow,currentCol) {
 }
 
 function resetGame() {
-  currentPlayer = 'red';
-  document.getElementById('error').textContent = '';
-  for (var i = row - 1; i >= 0; i--) {
-    gridArray[i] = [];
-    for (var j = 0; j < column; j++) {
-      //0,0 is bottom left
-      gridArray[i][j] = null; //internal grid
-
-    }
-  }
+	currentPlayer = 'red';
+	document.getElementById('error').textContent = '';
+	for (var i = row - 1; i >= 0; i--) {
+		gridArray[i] = [];
+		for (var j = 0; j < column; j++) {
+			//0,0 is bottom left
+			gridArray[i][j] = null; //internal grid
+		}
+	}
 }
