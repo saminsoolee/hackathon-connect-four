@@ -1,1 +1,39 @@
+.container {
+	width: 400px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	border-color: black;
+	border-width: 1px;
+	border-style: solid;
+}
 
+.buttonContainer {
+	display: flex;
+	justify-content: center;
+	width: 400px;
+}
+
+button {
+	width: 50px;
+	margin: 3px;
+}
+
+.spot {
+	flex-basis: 50px;
+	height: 50px;
+	margin: 2px;
+	border-radius: 50px;
+	border-color: black;
+	border-width: 1px;
+	border-style: solid;
+}
+
+.red {
+	background-color: crimson;
+}
+
+.yellow {
+	background-color: yellow;
+}
