@@ -54,6 +54,7 @@ function addTile() {
 			break; // if value is assigned to tile, break out of loop
 		}
 	}
+	return;
 }
 
 function colorTile(row, col) {
@@ -100,4 +101,35 @@ function checkWin(rownum, col) {
 			}
 		}
 	}
+	checkDiagonal(currentRow, currentCol);
+
+	return;
+}
+
+function checkDiagonal(currentRow, currentCol) {
+	var localMax = 0;
+	for (var i = 0; i < currentCol; i++) {
+		if (currentRow === 0) {
+			break;
+		}
+		currentRow--;
+	}
+	console.log('current row is', currentRow);
+	col = 0;
+	for (var k = currentRow; k < row; k++) {
+		if (gridArray[k][col] !== null) {
+			//if empty, stop checking
+			if (gridArray[k][col] == currentPlayer) {
+				localMax++;
+				col++;
+				if (localMax === 4) {
+					document.getElementById('error').textContent = currentPlayer + 'player wins!';
+					return;
+				}
+			} else {
+				localMax = 0;
+				col++;
+			}
+		}
+	} // bottom left to top right
 }
