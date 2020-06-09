@@ -1,6 +1,14 @@
 * {
 	text-align: center;
-	font-family: 'Montserrat Subrayada', sans-serif;
+	font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+	color:rgb(255,255,0);
+	text-shadow: 10px 10px 10px rgb(0,0,255);
+	background-color: white;
+	background-image: url("h1-image.png");
+
 }
 
 .wrapper {
@@ -51,6 +59,10 @@ button {
 	border-width: 1px;
 	border-style: solid;
 	background-color: white;
+	background-image: url("pokeball.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
 	box-shadow: 5px 5px black;
 }
 
