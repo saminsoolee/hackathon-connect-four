@@ -1,6 +1,11 @@
 * {
 	text-align: center;
-	font-family: 'Montserrat Subrayada', sans-serif;
+	font-family: 'Montserrat', sans-serif;
+}
+
+body{
+	background-color: rgba(209, 194, 214, 1);
+
 }
 
 .wrapper {
@@ -13,6 +18,8 @@
 	border-style: solid;
 	border-width: 1px;
 	padding: 10px;
+	box-shadow: 5px 5px black;
+	padding: 1rem;
 }
 .container {
 	width: 800px;
@@ -58,6 +65,10 @@ button {
 	border-width: 1px;
 	border-style: solid;
 	background-color: white;
+	background-image: url("pokeball.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
 	box-shadow: 5px 5px black;
 }
 
@@ -104,4 +115,5 @@ button {
 
 .timer {
 	position: fixed;
+	background-color: white;
 }
