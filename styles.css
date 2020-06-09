@@ -1,12 +1,10 @@
-*{
+* {
 	text-align: center;
-	font-family:'Montserrat Subrayada', sans-serif;
-;
+	font-family: 'Montserrat Subrayada', sans-serif;
 }
 
 .wrapper {
-		margin-left: 50px;
-
+	margin-left: 50px;
 }
 
 .container {
@@ -18,15 +16,17 @@
 	border-color: black;
 	border-width: 3px;
 	border-style: solid;
-	background-color: rgba(35,156,127,1.00);
+	background-color: rgba(35, 156, 127, 1.00);
 	box-shadow: 5px 5px black;
 	padding: 1rem;
+	margin: auto;
 }
 
 .buttonContainer {
 	display: flex;
 	justify-content: center;
 	width: 830px;
+	margin: auto;
 }
 
 button {
@@ -57,17 +57,17 @@ button {
 .Red {
 	background-color: crimson;
 	background-image: url("charmander.png");
-	background-position:center;
-	background-repeat:no-repeat;
-	background-size:contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
 }
 
 .Yellow {
 	background-color: yellow;
 	background-image: url("pikachu.png");
-	background-position:center;
-	background-repeat:no-repeat;
-	background-size:cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 #modalContainer {
 	text-align: center;
