@@ -165,7 +165,7 @@ function checkDiagonalLeft(currentRow, currentCol) {
 }
 
 function resetGame() {
-	document.getElementById('currentPlayer').textContent = 'Current Player: ';
+	document.getElementById('currentPlayer').textContent = 'Current Player: Red';
 	currentPlayer = 'Red';
 	document.getElementById('error').textContent = '';
 	for (var i = maxRow - 1; i >= 0; i--) {
