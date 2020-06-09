@@ -15,6 +15,13 @@ h1 {
 	margin-left: 50px;
 }
 
+.timer {
+	margin-left: auto;
+	float: right;
+	border-style: solid;
+	border-width: 1px;
+	padding: 10px;
+}
 .container {
 	width: 800px;
 	display: flex;
@@ -91,11 +98,12 @@ button {
 }
 
 #modal {
-	margin-top: 400px;
-	margin-left: 10px;
+	margin: auto;
+	margin-top: 350px;
 	height: 200px;
-	width: 800px;
+	width: 300px;
 	background-color: aquamarine;
+	border-radius: 10px;
 }
 
 #reset {
@@ -104,4 +112,8 @@ button {
 
 .hidden {
 	display: none;
+}
+
+.timer {
+	position: fixed;
 }
