@@ -79,11 +79,12 @@ button {
 }
 
 #modal {
-	margin-top: 400px;
-	margin-left: 10px;
+	margin: auto;
+	margin-top: 350px;
 	height: 200px;
-	width: 800px;
+	width: 300px;
 	background-color: aquamarine;
+	border-radius: 10px;
 }
 
 #reset {
