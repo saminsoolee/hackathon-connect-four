@@ -109,16 +109,13 @@ function checkWin(rowNum, col) {
 function checkDiagonalRight(currentRow, currentCol) {
 	var localMax = 0;
 	var col = currentCol;
-	for (var i = 0; i < currentCol; i++) {
-		if (currentRow === 0) {
-			break;
-		}
+	while(currentRow!==0&&col!==0){
 		currentRow--;
 		col--;
 	}
-	console.log('current row is', currentRow);
+	//console.log('current row is', currentRow);
 	for (var k = currentRow; k < maxRow; k++) {
-		console.count(localMax);
+		//console.count(localMax);
 		if (gridArray[k][col] !== null) {
 			//if empty, stop checking
 			if (gridArray[k][col] == currentPlayer) {
@@ -138,31 +135,31 @@ function checkDiagonalRight(currentRow, currentCol) {
 function checkDiagonalLeft(currentRow,currentCol) {
 	var localMax = 0;
 	var col = currentCol;
-	for (var i = 0; i < currentCol; i++) {
-		if (currentRow === 0) {
-			break;
-		}
+
+	while(col!==column&&currentRow!==0){
 		currentRow--;
-		col++;
+	 	col++;
 	}
 	console.log('current row is', currentRow);
-	for (var k = currentRow; k < maxRow; k++) {
-		console.count(localMax);
+	console.log("current col is ", col);
+	for (var k = 0; k < maxRow; k++) {
+
 		if (gridArray[k][col] !== null) {
 			//if empty, stop checking
 			if (gridArray[k][col] == currentPlayer) {
 				localMax++;
-				col--;
+
 				if (localMax === 4) {
 					error.textContent = currentPlayer + 'player wins!';
 					return;
 				}
 			} else {
 				localMax = 0;
-				col--;
+
 			}
+			col--;
 		}
-	} // bottom left to top right
+	} // bottom right to top left
 }
 
 function resetGame() {
