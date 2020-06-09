@@ -18,13 +18,7 @@ function handleTime() {
 		error.textContent = currentPlayer + ' has been skipped';
 		clearInterval(countdown);
 		countdown = setInterval(handleTime, 1000);
-		if (currentPlayer == 'Red') {
-			//change turn, first player is always Red
-			currentPlayer = 'Yellow';
-		} else {
-			currentPlayer = 'Red';
-		}
-		document.getElementById('currentPlayer').textContent = 'Current Player: ' + currentPlayer;
+		switchPlayer();
 		timer.textContent = 20;
 		turnTime = 20;
 	} else {
@@ -76,13 +70,7 @@ function addTile() {
 			//if (checkWin(rowNum, currCol)){
 			//    break;
 			//}
-			if (currentPlayer == 'Red') {
-				//change turn, first player is always Red
-				currentPlayer = 'Yellow';
-			} else {
-				currentPlayer = 'Red';
-			}
-			document.getElementById('currentPlayer').textContent = 'Current Player: ' + currentPlayer;
+			switchPlayer();
 			break; // if value is assigned to tile, break out of loop
 		}
 	}
@@ -138,7 +126,13 @@ function checkWin(rowNum, col) {
 }
 
 function playerWins() {
-	document.getElementById('error').textContent = currentPlayer + ' player wins!';
+	var winMessage = document.getElementById('win');
+	winMessage.textContent = currentPlayer + ' player wins!';
+	if (currentPlayer == 'Red') {
+		win.className = "red-text";
+	} else {
+		win.className = "yellow-text";
+	}
 	document.getElementById('modalContainer').classList.remove('hidden');
 	clearInterval(countdown);
 }
@@ -198,8 +192,8 @@ function checkDiagonalLeft(currentRow, currentCol) {
 }
 
 function resetGame() {
-	document.getElementById('currentPlayer').textContent = 'Current Player: Red';
 	currentPlayer = 'Red';
+	document.getElementById("color").textContent = currentPlayer;
 	document.getElementById('error').textContent = '';
 	for (var i = maxRow - 1; i >= 0; i--) {
 		gridArray[i] = [];
@@ -219,4 +213,18 @@ function resetGame() {
 		tiles[i].classList.remove('Yellow');
 	}
 	document.getElementById('modalContainer').classList.add('hidden');
+}
+
+function switchPlayer(){
+	var color = document.getElementById("color");
+	if (currentPlayer == 'Red') {
+		//change turn, first player is always Red
+		currentPlayer = 'Yellow';
+		color.className = "yellow-text";
+	} else {
+		currentPlayer = 'Red';
+		color.className = "red-text";
+	}
+	color.textContent = currentPlayer;
+
 }
