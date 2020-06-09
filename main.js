@@ -5,7 +5,8 @@ var currentPlayer = 'red'; //yellow
 var gridArray = [];
 var container = document.querySelector('div.container');
 var buttonContainer = document.querySelector('div.buttonContainer');
-//container.addEventListener('container');
+var reset = document.getElementById('reset');
+reset.addEventListener('click', resetGame);
 for (var i = maxRow - 1; i >= 0; i--) {
 	gridArray[i] = [];
 	for (var j = 0; j < column; j++) {
@@ -77,6 +78,7 @@ function checkWin(rowNum, col) {
 				localMax++;
 				if (localMax === 4) {
 					document.getElementById('error').textContent = currentPlayer + 'player wins!';
+					document.getElementById('modalContainer').classList.remove('hidden');
 					return;
 				}
 			} else {
@@ -94,6 +96,7 @@ function checkWin(rowNum, col) {
 				localMax++;
 				if (localMax === 4) {
 					document.getElementById('error').textContent = currentPlayer + 'player wins!';
+					document.getElementById('modalContainer').classList.remove('hidden');
 					return;
 				}
 			} else {
@@ -121,6 +124,7 @@ function checkDiagonalRight(currentRow, currentCol) {
 				localMax++;
 				if (localMax === 4) {
 					error.textContent = currentPlayer + 'player wins!';
+					document.getElementById('modalContainer').classList.remove('hidden');
 					return;
 				}
 			} else {
@@ -149,6 +153,7 @@ function checkDiagonalLeft(currentRow, currentCol) {
 				localMax++;
 				if (localMax === 4) {
 					error.textContent = currentPlayer + 'player wins!';
+					document.getElementById('modalContainer').classList.remove('hidden');
 					return;
 				}
 			} else {
@@ -162,11 +167,18 @@ function checkDiagonalLeft(currentRow, currentCol) {
 function resetGame() {
 	currentPlayer = 'red';
 	document.getElementById('error').textContent = '';
-	for (var i = row - 1; i >= 0; i--) {
+	for (var i = maxRow - 1; i >= 0; i--) {
 		gridArray[i] = [];
 		for (var j = 0; j < column; j++) {
 			//0,0 is bottom left
+
 			gridArray[i][j] = null; //internal grid
 		}
 	}
+	var tiles = container.children;
+	for (var i = 0; i < tiles.length; i++) {
+		tiles[i].classList.remove('red');
+		tiles[i].classList.remove('yellow');
+	}
+	document.getElementById('modalContainer').classList.add('hidden');
 }
