@@ -164,3 +164,16 @@ function checkDiagonalLeft(currentRow,currentCol) {
 		}
 	} // bottom left to top right
 }
+
+function resetGame() {
+  currentPlayer = 'red';
+  document.getElementById('error').textContent = '';
+  for (var i = row - 1; i >= 0; i--) {
+    gridArray[i] = [];
+    for (var j = 0; j < column; j++) {
+      //0,0 is bottom left
+      gridArray[i][j] = null; //internal grid
+
+    }
+  }
+}
