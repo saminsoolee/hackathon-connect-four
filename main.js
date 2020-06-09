@@ -130,6 +130,6 @@ function checkDiagonal(currentRow, currentCol) {
 				localMax = 0;
 			}
 		}
+		col++;
 	} // bottom left to top right
-	col++;
 }
