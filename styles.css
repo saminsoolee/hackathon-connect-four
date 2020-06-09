@@ -1,3 +1,14 @@
+*{
+	text-align: center;
+	font-family:'Montserrat Subrayada', sans-serif;
+;
+}
+
+.wrapper {
+		margin-left: 50px;
+
+}
+
 .container {
 	width: 800px;
 	display: flex;
@@ -5,13 +16,24 @@
 	align-items: center;
 	flex-wrap: wrap;
 	border-color: black;
-	border-width: 1px;
+	border-width: 3px;
 	border-style: solid;
+	background-color: rgba(35,156,127,1.00);
+	box-shadow: 5px 5px black;
+	padding: 1rem;
 }
 
 .buttonContainer {
 	display: flex;
 	justify-content: center;
+	width: 830px;
+}
+
+button {
+	width: 120px;
+	margin: 10px;
+	box-shadow: 5px 5px black;
+	font-weight: bolder;
 	width: 800px;
 }
 
@@ -28,12 +50,13 @@ button {
 	border-color: black;
 	border-width: 1px;
 	border-style: solid;
+	background-color: white;
+	box-shadow: 5px 5px black;
 }
 
 .red {
 	background-color: crimson;
 }
-
 .yellow {
 	background-color: yellow;
 }

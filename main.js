@@ -22,7 +22,7 @@ for (var i = maxRow - 1; i >= 0; i--) {
 
 for (var i = 0; i < column; i++) {
 	var button = document.createElement('button');
-	button.textContent = 'Add tile to column ' + i;
+	button.textContent = ' ' + i;
 	button.setAttribute('col', i);
 	button.addEventListener('click', addTile);
 	buttonContainer.appendChild(button);
@@ -165,6 +165,7 @@ function checkDiagonalLeft(currentRow, currentCol) {
 }
 
 function resetGame() {
+	document.getElementById(‘currentPlayer’).textContent = ‘Current Player: ’
 	currentPlayer = 'red';
 	document.getElementById('error').textContent = '';
 	for (var i = maxRow - 1; i >= 0; i--) {
