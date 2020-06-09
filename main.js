@@ -108,14 +108,15 @@ function checkWin(rownum, col) {
 
 function checkDiagonal(currentRow, currentCol) {
 	var localMax = 0;
+	var col = currentCol;
 	for (var i = 0; i < currentCol; i++) {
 		if (currentRow === 0) {
 			break;
 		}
 		currentRow--;
+		col--;
 	}
 	console.log('current row is', currentRow);
-	col = 0;
 	for (var k = currentRow; k < row; k++) {
 		if (gridArray[k][col] !== null) {
 			//if empty, stop checking
