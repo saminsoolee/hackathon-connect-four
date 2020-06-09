@@ -1,5 +1,5 @@
 var maxRow = 6;
-var column = 7;//max
+var column = 7; //max
 var error = document.getElementById('error');
 var currentPlayer = 'red'; //yellow
 var gridArray = [];
@@ -103,7 +103,6 @@ function checkWin(rowNum, col) {
 	}
 	checkDiagonalRight(currentRow, currentCol);
 	checkDiagonalLeft(currentRow, currentCol);
-
 }
 
 function checkDiagonalRight(currentRow, currentCol) {
@@ -135,16 +134,14 @@ function checkDiagonalRight(currentRow, currentCol) {
 	} // bottom left to top right
 }
 
-function checkDiagonalLeft(currentRow,currentCol) {
+function checkDiagonalLeft(currentRow, currentCol) {
 	var localMax = 0;
 	var col = currentCol;
-	for (var i = 0; i < currentCol; i++) {
-		if (currentRow === 0) {
-			break;
-		}
+	while (col !== column && currentRow !== 0) {
 		currentRow--;
 		col++;
 	}
+
 	console.log('current row is', currentRow);
 	for (var k = currentRow; k < maxRow; k++) {
 		console.count(localMax);
@@ -152,28 +149,26 @@ function checkDiagonalLeft(currentRow,currentCol) {
 			//if empty, stop checking
 			if (gridArray[k][col] == currentPlayer) {
 				localMax++;
-				col--;
 				if (localMax === 4) {
 					error.textContent = currentPlayer + 'player wins!';
 					return;
 				}
 			} else {
 				localMax = 0;
-				col--;
 			}
 		}
+		col--;
 	} // bottom left to top right
 }
 
 function resetGame() {
-  currentPlayer = 'red';
-  document.getElementById('error').textContent = '';
-  for (var i = row - 1; i >= 0; i--) {
-    gridArray[i] = [];
-    for (var j = 0; j < column; j++) {
-      //0,0 is bottom left
-      gridArray[i][j] = null; //internal grid
-
-    }
-  }
+	currentPlayer = 'red';
+	document.getElementById('error').textContent = '';
+	for (var i = row - 1; i >= 0; i--) {
+		gridArray[i] = [];
+		for (var j = 0; j < column; j++) {
+			//0,0 is bottom left
+			gridArray[i][j] = null; //internal grid
+		}
+	}
 }
