@@ -17,7 +17,8 @@ function handleTime() {
 	if (turnTime === 0) {
 		error.textContent = currentPlayer + ' has been skipped';
 		clearInterval(countdown);
-
+		countdown = setInterval(handleTime, 1000);
+		document.getElementById('currentPlayer').textContent = 'Current Player: ' + currentPlayer;
 		if (currentPlayer == 'Red') {
 			//change turn, first player is always Red
 			currentPlayer = 'Yellow';
@@ -136,7 +137,7 @@ function checkWin(rowNum, col) {
 	checkDiagonalLeft(currentRow, currentCol);
 }
 
-function playerWins(){
+function playerWins() {
 	document.getElementById('error').textContent = currentPlayer + ' player wins!';
 	document.getElementById('modalContainer').classList.remove('hidden');
 	clearInterval(countdown);
