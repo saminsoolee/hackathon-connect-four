@@ -57,8 +57,8 @@ function addTile() {
 	if (countdown != null) clearInterval(countdown);
 	countdown = null;
 	turnTime = 20;
-	countdown = setInterval(handleTime, 1000);
 	timer.textContent = 20;
+	countdown = setInterval(handleTime, 1000);
 	error.textContent = '';
 	var currCol = event.currentTarget.getAttribute('col'); //column
 	//console.log(event.currentTarget.ge//tAttribute('col'));
@@ -107,8 +107,7 @@ function checkWin(rowNum, col) {
 			if (gridArray[i][currentCol] == currentPlayer) {
 				localMax++;
 				if (localMax === 4) {
-					document.getElementById('error').textContent = currentPlayer + 'player wins!';
-					document.getElementById('modalContainer').classList.remove('hidden');
+					playerWins();
 					return;
 				}
 			} else {
@@ -125,8 +124,7 @@ function checkWin(rowNum, col) {
 			if (gridArray[currentRow][j] == currentPlayer) {
 				localMax++;
 				if (localMax === 4) {
-					document.getElementById('error').textContent = currentPlayer + 'player wins!';
-					document.getElementById('modalContainer').classList.remove('hidden');
+					playerWins();
 					return;
 				}
 			} else {
@@ -136,6 +134,12 @@ function checkWin(rowNum, col) {
 	}
 	checkDiagonalRight(currentRow, currentCol);
 	checkDiagonalLeft(currentRow, currentCol);
+}
+
+function playerWins(){
+	document.getElementById('error').textContent = currentPlayer + ' player wins!';
+	document.getElementById('modalContainer').classList.remove('hidden');
+	clearInterval(countdown);
 }
 
 function checkDiagonalRight(currentRow, currentCol) {
@@ -153,8 +157,7 @@ function checkDiagonalRight(currentRow, currentCol) {
 			if (gridArray[k][col] == currentPlayer) {
 				localMax++;
 				if (localMax === 4) {
-					error.textContent = currentPlayer + 'player wins!';
-					document.getElementById('modalContainer').classList.remove('hidden');
+					playerWins();
 					return;
 				}
 			} else {
@@ -182,8 +185,7 @@ function checkDiagonalLeft(currentRow, currentCol) {
 			if (gridArray[k][col] == currentPlayer) {
 				localMax++;
 				if (localMax === 4) {
-					error.textContent = currentPlayer + 'player wins!';
-					document.getElementById('modalContainer').classList.remove('hidden');
+					playerWins();
 					return;
 				}
 			} else {
@@ -206,6 +208,10 @@ function resetGame() {
 			gridArray[i][j] = null; //internal grid
 		}
 	}
+	countdown = null;
+	turnTime = 20;
+	timer.textContent = 20;
+	countdown = setInterval(handleTime, 1000);
 	var tiles = container.children;
 	for (var i = 0; i < tiles.length; i++) {
 		tiles[i].classList.remove('Red');
