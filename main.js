@@ -17,6 +17,7 @@ function handleTime() {
 	if (turnTime === 0) {
 		error.textContent = currentPlayer + ' has been skipped';
 		clearInterval(countdown);
+		countdown = setInterval(handleTime, 1000);
 
 		if (currentPlayer == 'Red') {
 			//change turn, first player is always Red
@@ -57,6 +58,7 @@ function addTile() {
 	if (countdown != null) clearInterval(countdown);
 	countdown = null;
 	turnTime = 20;
+	timer.textContent = 20;
 	countdown = setInterval(handleTime, 1000);
 	error.textContent = '';
 	var currCol = event.currentTarget.getAttribute('col'); //column
@@ -108,6 +110,9 @@ function checkWin(rowNum, col) {
 				if (localMax === 4) {
 					document.getElementById('error').textContent = currentPlayer + 'player wins!';
 					document.getElementById('modalContainer').classList.remove('hidden');
+					if (countdown != null) clearInterval(countdown);
+					turnTime = 20;
+					timer.textContent = 20;
 					return;
 				}
 			} else {
@@ -126,6 +131,9 @@ function checkWin(rowNum, col) {
 				if (localMax === 4) {
 					document.getElementById('error').textContent = currentPlayer + 'player wins!';
 					document.getElementById('modalContainer').classList.remove('hidden');
+					if (countdown != null) clearInterval(countdown);
+					turnTime = 20;
+					timer.textContent = 20;
 					return;
 				}
 			} else {
@@ -154,6 +162,9 @@ function checkDiagonalRight(currentRow, currentCol) {
 				if (localMax === 4) {
 					error.textContent = currentPlayer + 'player wins!';
 					document.getElementById('modalContainer').classList.remove('hidden');
+					if (countdown != null) clearInterval(countdown);
+					turnTime = 20;
+					timer.textContent = 20;
 					return;
 				}
 			} else {
@@ -183,6 +194,9 @@ function checkDiagonalLeft(currentRow, currentCol) {
 				if (localMax === 4) {
 					error.textContent = currentPlayer + 'player wins!';
 					document.getElementById('modalContainer').classList.remove('hidden');
+					if (countdown != null) clearInterval(countdown);
+					turnTime = 20;
+					timer.textContent = 20;
 					return;
 				}
 			} else {
@@ -211,4 +225,5 @@ function resetGame() {
 		tiles[i].classList.remove('Yellow');
 	}
 	document.getElementById('modalContainer').classList.add('hidden');
+	countdown = setInterval(handleTime, 1000);
 }
