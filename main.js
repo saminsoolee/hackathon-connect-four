@@ -80,7 +80,6 @@ function addTile() {
 function colorTile(row, col) {
 	var localRow = document.getElementsByClassName('row-' + row);
 	var element = localRow[col];
-	//console.log(element);
 	element.classList.add(currentPlayer);
 }
 
@@ -129,9 +128,9 @@ function playerWins() {
 	var winMessage = document.getElementById('win');
 	winMessage.textContent = currentPlayer + ' player wins!';
 	if (currentPlayer == 'Red') {
-		win.className = "red-text";
+		winMessage.className = "red-text";
 	} else {
-		win.className = "yellow-text";
+		winMessage.className = "yellow-text";
 	}
 	document.getElementById('modalContainer').classList.remove('hidden');
 	clearInterval(countdown);
@@ -172,8 +171,6 @@ function checkDiagonalLeft(currentRow, currentCol) {
 		col++;
 	}
 
-	//console.log('current row is', currentRow);
-	//console.log('current col is ', col);
 	for (var k = currentRow; k < maxRow; k++) {
 		if (gridArray[k][col] !== null) {
 			//if empty, stop checking
@@ -194,6 +191,7 @@ function checkDiagonalLeft(currentRow, currentCol) {
 function resetGame() {
 	currentPlayer = 'Red';
 	document.getElementById("color").textContent = currentPlayer;
+	document.getElementById("color").className="red-text";
 	document.getElementById('error').textContent = '';
 	for (var i = maxRow - 1; i >= 0; i--) {
 		gridArray[i] = [];
