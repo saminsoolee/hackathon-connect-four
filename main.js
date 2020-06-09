@@ -18,13 +18,13 @@ function handleTime() {
 		error.textContent = currentPlayer + ' has been skipped';
 		clearInterval(countdown);
 		countdown = setInterval(handleTime, 1000);
-		document.getElementById('currentPlayer').textContent = 'Current Player: ' + currentPlayer;
 		if (currentPlayer == 'Red') {
 			//change turn, first player is always Red
 			currentPlayer = 'Yellow';
 		} else {
 			currentPlayer = 'Red';
 		}
+		document.getElementById('currentPlayer').textContent = 'Current Player: ' + currentPlayer;
 		timer.textContent = 20;
 		turnTime = 20;
 	} else {
