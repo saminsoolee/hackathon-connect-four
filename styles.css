@@ -1,3 +1,7 @@
+*{
+	text-align: center;
+}
+
 .container {
 	width: 400px;
 	display: flex;
@@ -5,19 +9,27 @@
 	align-items: center;
 	flex-wrap: wrap;
 	border-color: black;
-	border-width: 1px;
+	border-width: 3px;
 	border-style: solid;
+	background-color: rgba(35,156,127,1.00);
+	box-shadow: 5px 5px black;
 }
 
 .buttonContainer {
 	display: flex;
 	justify-content: center;
 	width: 400px;
+	padding: 1rem;
+
+
 }
 
 button {
+	border-bottom: 5px;
 	width: 50px;
 	margin: 3px;
+	box-shadow: 5px 5px black;
+
 }
 
 .spot {
@@ -28,12 +40,12 @@ button {
 	border-color: black;
 	border-width: 1px;
 	border-style: solid;
+	background-color: white;
 }
 
 .red {
 	background-color: crimson;
 }
-
 .yellow {
 	background-color: yellow;
 }
