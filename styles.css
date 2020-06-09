@@ -1,5 +1,5 @@
 .container {
-	width: 400px;
+	width: 800px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -12,18 +12,18 @@
 .buttonContainer {
 	display: flex;
 	justify-content: center;
-	width: 400px;
+	width: 800px;
 }
 
 button {
-	width: 50px;
-	margin: 3px;
+	width: 99px;
+	margin: 10px;
 }
 
 .spot {
-	flex-basis: 50px;
-	height: 50px;
-	margin: 2px;
+	flex-basis: 100px;
+	height: 100px;
+	margin: 6px;
 	border-radius: 50px;
 	border-color: black;
 	border-width: 1px;
