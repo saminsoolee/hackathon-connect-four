@@ -17,6 +17,7 @@ function handleTime() {
 	if (turnTime === 0) {
 		error.textContent = currentPlayer + ' has been skipped';
 		clearInterval(countdown);
+		countdown = setInterval(handleTime, 1000);
 
 		if (currentPlayer == 'Red') {
 			//change turn, first player is always Red
