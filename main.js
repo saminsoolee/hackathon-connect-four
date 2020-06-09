@@ -6,7 +6,32 @@ var gridArray = [];
 var container = document.querySelector('div.container');
 var buttonContainer = document.querySelector('div.buttonContainer');
 var reset = document.getElementById('reset');
+var timer = document.querySelector("h1.time");
+var turnTime = 20;
+
 reset.addEventListener('click', resetGame);
+
+var countdown = setInterval(handleTime,1000);
+
+function handleTime(){
+	if (turnTime===0){
+		error.textContent = currentPlayer + " has been skipped";
+		clearInterval(countdown);
+
+		if (currentPlayer == 'Red') {
+			//change turn, first player is always Red
+			currentPlayer = 'Yellow';
+		} else {
+			currentPlayer = 'Red';
+		}
+		timer.textContent=20;
+		turnTime=20;
+	}else{
+		turnTime--;
+		timer.textContent--;
+	}
+}
+
 for (var i = maxRow - 1; i >= 0; i--) {
 	gridArray[i] = [];
 	for (var j = 0; j < column; j++) {
@@ -29,6 +54,8 @@ for (var i = 0; i < column; i++) {
 }
 
 function addTile() {
+	if(countdown != null) clearInterval(countdown); countdown=null; turnTime=20;
+	countdown = setInterval(handleTime, 1000);
 	error.textContent = '';
 	var currCol = event.currentTarget.getAttribute('col'); //column
 	//console.log(event.currentTarget.ge//tAttribute('col'));
