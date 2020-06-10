@@ -3,14 +3,11 @@
 	font-family: 'Montserrat', sans-serif;
 }
 
-body{
-	background-image: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.2)), url("background-image.png");
-  background-position: center;
-  background-repeat: no-repeat;
+body {
+	background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2)), url("background-image.png");
+	background-position: center;
+	background-repeat: no-repeat;
 	background-size: cover;
-
-
-
 }
 
 .wrapper {
@@ -92,19 +89,20 @@ button {
 	background-repeat: no-repeat;
 	background-size: cover;
 }
-.red-text{
+.red-text {
 	color: black;
-  -webkit-text-fill-color: crimson;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: black;
+	-webkit-text-fill-color: crimson;
+	-webkit-text-stroke-width: 1px;
+	-webkit-text-stroke-color: black;
 }
-.yellow-text{
+.yellow-text {
 	color: black;
-  -webkit-text-fill-color: gold;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: black;
+	-webkit-text-fill-color: gold;
+	-webkit-text-stroke-width: 1px;
+	-webkit-text-stroke-color: black;
 }
-#modalContainer {
+#modalContainer,
+#playerContainer {
 	text-align: center;
 	position: absolute;
 	top: 0px;
@@ -113,7 +111,8 @@ button {
 	height: 100%;
 }
 
-#modal {
+#modal,
+#playerModal {
 	margin: auto;
 	margin-top: 350px;
 	height: 200px;
@@ -121,8 +120,8 @@ button {
 	background-color: slategray;
 	border-radius: 10px;
 }
-#win{
-	margin:20px;
+#win {
+	margin: 20px;
 }
 #reset {
 	margin-top: 15px;
