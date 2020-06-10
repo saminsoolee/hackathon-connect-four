@@ -242,7 +242,7 @@ function addPlayer() {
 	if (playerNum < 2) {
 		players.push(document.getElementById('name').value);
 		document.getElementById('name').value = '';
-		document.getElementById('labelName').textContent = 'Player 2: Name';
+		document.getElementById('labelName').textContent = 'Player 2 Name:';
 		playerNum++;
 		if (playerNum === 2) {
 			document.getElementById('playerContainer').classList.add('hidden');
