@@ -65,7 +65,7 @@ function addTile() {
 	for (var rowNum = 0; rowNum < maxCol; rowNum++) {
 		// find the first empty row in the maxCol
 		if (rowNum == 6) {
-			error.textContent = 'maxCol is full, try again';
+			error.textContent = 'This column is full, try again';
 			return;
 		}
 		if (gridArray[rowNum][currCol] === null) {
@@ -83,9 +83,9 @@ function colorTile(row, col) {
 	var localRow = document.getElementsByClassName('row-' + row);
 	var element = localRow[col];
 	if (currentPlayer === players[0]) {
-		element.classList.add('Red');
+		element.classList.add('red');
 	} else {
-		element.classList.add('Yellow');
+		element.classList.add('yellow');
 	}
 }
 
@@ -213,8 +213,8 @@ function resetGame() {
 	countdown = setInterval(handleTime, 1000);
 	var tiles = container.children;
 	for (var i = 0; i < tiles.length; i++) {
-		tiles[i].classList.remove('Red');
-		tiles[i].classList.remove('Yellow');
+		tiles[i].classList.remove('red');
+		tiles[i].classList.remove('yellow');
 	}
 	document.getElementById('modalContainer').classList.add('hidden');
 }

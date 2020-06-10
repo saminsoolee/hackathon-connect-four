@@ -16,13 +16,15 @@ body {
 
 .timer {
 	margin-left: auto;
-	float: right;
 	border-style: solid;
 	border-width: 1px;
 	padding: 10px;
 	box-shadow: 5px 5px black;
 	padding: 1rem;
+	position: fixed;
+	background-color: white;
 }
+
 .container {
 	width: 800px;
 	display: flex;
@@ -46,16 +48,10 @@ body {
 }
 
 button {
-	width: 120px;
 	margin: 10px;
 	box-shadow: 5px 5px black;
 	font-weight: bolder;
-	width: 800px;
-}
-
-button {
 	width: 99px;
-	margin: 10px;
 }
 
 .spot {
@@ -74,7 +70,7 @@ button {
 	box-shadow: 5px 5px black;
 }
 
-.Red {
+.red {
 	background-color: crimson;
 	background-image: url("charmander.png");
 	background-position: center;
@@ -82,7 +78,7 @@ button {
 	background-size: contain;
 }
 
-.Yellow {
+.yellow {
 	background-color: yellow;
 	background-image: url("pikachu.png");
 	background-position: center;
@@ -149,9 +145,4 @@ button {
 
 .hidden {
 	display: none;
-}
-
-.timer {
-	position: fixed;
-	background-color: white;
 }
