@@ -32,29 +32,28 @@ function handleTime() {
 	}
 }
 
-function populate(){
-for (var i = maxRow - 1; i >= 0; i--) {
-	gridArray[i] = [];
-	for (var j = 0; j < maxCol; j++) {
-		//0,0 is bottom left
-		var spot = document.createElement('div');
-		spot.classList.add('col-' + j);
-		spot.classList.add('row-' + i);
-		spot.classList.add('spot');
-		container.appendChild(spot);
-		gridArray[i][j] = null; //internal grid
+function populate() {
+	for (var i = maxRow - 1; i >= 0; i--) {
+		gridArray[i] = [];
+		for (var j = 0; j < maxCol; j++) {
+			//0,0 is bottom left
+			var spot = document.createElement('div');
+			spot.classList.add('col-' + j);
+			spot.classList.add('row-' + i);
+			spot.classList.add('spot');
+			container.appendChild(spot);
+			gridArray[i][j] = null; //internal grid
+		}
+	}
+
+	for (var i = 0; i < maxCol; i++) {
+		var button = document.createElement('button');
+		button.textContent = ' ' + i;
+		button.setAttribute('col', i);
+		button.addEventListener('click', addTile);
+		buttonContainer.appendChild(button);
 	}
 }
-
-for (var i = 0; i < maxCol; i++) {
-	var button = document.createElement('button');
-	button.textContent = ' ' + i;
-	button.setAttribute('col', i);
-	button.addEventListener('click', addTile);
-	buttonContainer.appendChild(button);
-}
-}
-
 
 function addTile() {
 	if (countdown != null) clearInterval(countdown);
