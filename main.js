@@ -1,14 +1,14 @@
 var maxRow = 6;
 var maxCol = 7; //max
 var error = document.getElementById('error');
-var currentPlayer = 'Red'; //Yellow
+var currentPlayer; //Yellow
 var gridArray = [];
 var container = document.querySelector('div.container');
 var buttonContainer = document.querySelector('div.buttonContainer');
 var reset = document.getElementById('reset');
 var timer = document.querySelector('h1.time');
 var turnTime = 20;
-
+document.getElementById('color').textContent = '';
 reset.addEventListener('click', resetGame);
 
 var countdown = setInterval(handleTime, 1000);
@@ -80,7 +80,11 @@ function addTile() {
 function colorTile(row, col) {
 	var localRow = document.getElementsByClassName('row-' + row);
 	var element = localRow[col];
-	element.classList.add(currentPlayer);
+	if (currentPlayer === players[0]) {
+		element.classList.add('Red');
+	} else {
+		element.classList.add('Yellow');
+	}
 }
 
 function checkWin(rowNum, col) {
@@ -127,10 +131,10 @@ function checkWin(rowNum, col) {
 function playerWins() {
 	var winMessage = document.getElementById('win');
 	winMessage.textContent = currentPlayer + ' player wins!';
-	if (currentPlayer == 'Red') {
-		winMessage.className = "red-text";
+	if (currentPlayer == players[0]) {
+		winMessage.className = 'red-text';
 	} else {
-		winMessage.className = "yellow-text";
+		winMessage.className = 'yellow-text';
 	}
 	document.getElementById('modalContainer').classList.remove('hidden');
 	clearInterval(countdown);
@@ -189,9 +193,9 @@ function checkDiagonalLeft(currentRow, currentCol) {
 }
 
 function resetGame() {
-	currentPlayer = 'Red';
-	document.getElementById("color").textContent = currentPlayer;
-	document.getElementById("color").className="red-text";
+	currentPlayer = players[0];
+	document.getElementById('color').textContent = currentPlayer;
+	document.getElementById('color').className = 'red-text';
 	document.getElementById('error').textContent = '';
 	for (var i = maxRow - 1; i >= 0; i--) {
 		gridArray[i] = [];
@@ -213,16 +217,35 @@ function resetGame() {
 	document.getElementById('modalContainer').classList.add('hidden');
 }
 
-function switchPlayer(){
-	var color = document.getElementById("color");
-	if (currentPlayer == 'Red') {
+function switchPlayer() {
+	var color = document.getElementById('color');
+	if (currentPlayer == players[0]) {
 		//change turn, first player is always Red
-		currentPlayer = 'Yellow';
-		color.className = "yellow-text";
+		currentPlayer = players[1];
+		color.className = 'yellow-text';
 	} else {
-		currentPlayer = 'Red';
-		color.className = "red-text";
+		currentPlayer = players[0];
+		color.className = 'red-text';
 	}
 	color.textContent = currentPlayer;
+}
 
+var players = [];
+var playerNum = 0;
+var player = document.getElementById('enter');
+player.addEventListener('click', addPlayer);
+function addPlayer() {
+	if (playerNum < 2) {
+		players.push(document.getElementById('name').value);
+		document.getElementById('name').value = '';
+		document.getElementById('labelName').textContent = 'Player 2: Name';
+		playerNum++;
+		if (playerNum === 2) {
+			document.getElementById('playerContainer').classList.add('hidden');
+			currentPlayer = players[0];
+			document.getElementById('color').textContent = currentPlayer;
+		}
+	} else {
+		document.getElementById('playerContainer').classList.add('hidden');
+	}
 }
