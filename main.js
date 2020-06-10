@@ -16,6 +16,7 @@ document.getElementById('color').textContent = '';
 reset.addEventListener('click', resetGame);
 
 var countdown;
+populate(); //sets the grid for the first time;
 
 function handleTime() {
 	if (turnTime === 0) {
@@ -31,6 +32,7 @@ function handleTime() {
 	}
 }
 
+function populate(){
 for (var i = maxRow - 1; i >= 0; i--) {
 	gridArray[i] = [];
 	for (var j = 0; j < maxCol; j++) {
@@ -51,6 +53,8 @@ for (var i = 0; i < maxCol; i++) {
 	button.addEventListener('click', addTile);
 	buttonContainer.appendChild(button);
 }
+}
+
 
 function addTile() {
 	if (countdown != null) clearInterval(countdown);
