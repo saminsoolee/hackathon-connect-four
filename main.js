@@ -130,7 +130,7 @@ function checkWin(rowNum, col) {
 
 function playerWins() {
 	var winMessage = document.getElementById('win');
-	winMessage.textContent = currentPlayer + ' player wins!';
+	winMessage.textContent = currentPlayer + ' wins!';
 	if (currentPlayer == players[0]) {
 		winMessage.className = 'red-text';
 	} else {
