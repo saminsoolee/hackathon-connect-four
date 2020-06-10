@@ -116,13 +116,21 @@ button {
 	margin: auto;
 	margin-top: 350px;
 	height: 200px;
-	width: 300px;
-	background-color: slategray;
+	width: 400px;
+	background-color: rgba(236, 100, 75, 1);
 	border-radius: 10px;
+	padding: 50px;
+	box-shadow: 5px 5px black;
+	line-height: 5rem;
 }
 #win {
 	margin: 20px;
 }
+
+#enter {
+	cursor: pointer;
+}
+
 #reset {
 	margin-top: 15px;
 }
