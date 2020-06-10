@@ -120,6 +120,18 @@ button {
 	background-color: slategray;
 	border-radius: 10px;
 }
+
+#playerModal {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#labelName,
+#name {
+	width: 100%;
+}
+
 #win {
 	margin: 20px;
 }
