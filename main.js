@@ -12,7 +12,6 @@ var players = [];
 var playerNum = 0;
 var player = document.getElementById('enter');
 player.addEventListener('click', addPlayer);
-document.getElementById('color').textContent = '';
 reset.addEventListener('click', resetGame);
 
 var countdown;
@@ -63,7 +62,6 @@ function addTile() {
 	countdown = setInterval(handleTime, 1000);
 	error.textContent = '';
 	var currCol = event.currentTarget.getAttribute('col'); //maxCol
-	//console.log(event.currentTarget.ge//tAttribute('col'));
 	for (var rowNum = 0; rowNum < maxCol; rowNum++) {
 		// find the first empty row in the maxCol
 		if (rowNum == 6) {
@@ -74,9 +72,6 @@ function addTile() {
 			gridArray[rowNum][currCol] = currentPlayer;
 			colorTile(rowNum, currCol);
 			checkWin(rowNum, currCol);
-			//if (checkWin(rowNum, currCol)){
-			//    break;
-			//}
 			switchPlayer();
 			break; // if value is assigned to tile, break out of loop
 		}
