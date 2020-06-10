@@ -11,7 +11,7 @@ var turnTime = 20;
 document.getElementById('color').textContent = '';
 reset.addEventListener('click', resetGame);
 
-var countdown = setInterval(handleTime, 1000);
+var countdown;
 
 function handleTime() {
 	if (turnTime === 0) {
@@ -244,6 +244,7 @@ function addPlayer() {
 			document.getElementById('playerContainer').classList.add('hidden');
 			currentPlayer = players[0];
 			document.getElementById('color').textContent = currentPlayer;
+			countdown = setInterval(handleTime, 1000);
 		}
 	} else {
 		document.getElementById('playerContainer').classList.add('hidden');
