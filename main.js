@@ -11,7 +11,7 @@ var turnTime = 20;
 document.getElementById('color').textContent = '';
 reset.addEventListener('click', resetGame);
 
-var countdown = setInterval(handleTime, 1000);
+var countdown;
 
 function handleTime() {
 	if (turnTime === 0) {
@@ -130,7 +130,7 @@ function checkWin(rowNum, col) {
 
 function playerWins() {
 	var winMessage = document.getElementById('win');
-	winMessage.textContent = currentPlayer + ' player wins!';
+	winMessage.textContent = currentPlayer + ' wins!';
 	if (currentPlayer == players[0]) {
 		winMessage.className = 'red-text';
 	} else {
@@ -244,6 +244,7 @@ function addPlayer() {
 			document.getElementById('playerContainer').classList.add('hidden');
 			currentPlayer = players[0];
 			document.getElementById('color').textContent = currentPlayer;
+			countdown = setInterval(handleTime, 1000);
 		}
 	} else {
 		document.getElementById('playerContainer').classList.add('hidden');
