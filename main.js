@@ -8,6 +8,10 @@ var buttonContainer = document.querySelector('div.buttonContainer');
 var reset = document.getElementById('reset');
 var timer = document.querySelector('h1.time');
 var turnTime = 20;
+var players = [];
+var playerNum = 0;
+var player = document.getElementById('enter');
+player.addEventListener('click', addPlayer);
 document.getElementById('color').textContent = '';
 reset.addEventListener('click', resetGame);
 
@@ -230,10 +234,6 @@ function switchPlayer() {
 	color.textContent = currentPlayer;
 }
 
-var players = [];
-var playerNum = 0;
-var player = document.getElementById('enter');
-player.addEventListener('click', addPlayer);
 function addPlayer() {
 	if (playerNum < 2) {
 		players.push(document.getElementById('name').value);
