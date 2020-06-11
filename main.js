@@ -1,7 +1,10 @@
 var maxRow = 6;
 var maxCol = 7; //max
 var error = document.getElementById('error');
-var currentPlayer; //Yellow
+var currentPlayer;
+var pokemonChoices = { Pikachu: 'yellow', Squirtle: 'blue', Charmander: 'red', Bulbasaur: 'green' };
+var playerColor1;
+var playerColor2;
 var gridArray = [];
 var container = document.querySelector('div.container');
 var buttonContainer = document.querySelector('div.buttonContainer');
@@ -83,9 +86,9 @@ function colorTile(row, col) {
 	var localRow = document.getElementsByClassName('row-' + row);
 	var element = localRow[col];
 	if (currentPlayer === players[0]) {
-		element.classList.add('red');
+		element.classList.add(pokemonChoices[playerColor1]);
 	} else {
-		element.classList.add('yellow');
+		element.classList.add(pokemonChoices[playerColor2]);
 	}
 }
 
@@ -134,9 +137,9 @@ function playerWins() {
 	var winMessage = document.getElementById('win');
 	winMessage.textContent = currentPlayer + ' wins!';
 	if (currentPlayer == players[0]) {
-		winMessage.className = 'red-text';
+		winMessage.className = pokemonChoices[playerColor1] + '-text';
 	} else {
-		winMessage.className = 'yellow-text';
+		winMessage.className = pokemonChoices[playerColor1] + '-text';
 	}
 	document.getElementById('modalContainer').classList.remove('hidden');
 	clearInterval(countdown);
@@ -197,7 +200,7 @@ function checkDiagonalLeft(currentRow, currentCol) {
 function resetGame() {
 	currentPlayer = players[0];
 	document.getElementById('color').textContent = currentPlayer;
-	document.getElementById('color').className = 'red-text';
+	document.getElementById('color').className = pokemonChoices[playerColor1] + '-text';
 	document.getElementById('error').textContent = '';
 	for (var i = maxRow - 1; i >= 0; i--) {
 		gridArray[i] = [];
@@ -213,8 +216,8 @@ function resetGame() {
 	countdown = setInterval(handleTime, 1000);
 	var tiles = container.children;
 	for (var i = 0; i < tiles.length; i++) {
-		tiles[i].classList.remove('red');
-		tiles[i].classList.remove('yellow');
+		tiles[i].classList.remove(pokemonChoices[playerColor1]);
+		tiles[i].classList.remove(pokemonChoices[playerColor2]);
 	}
 	document.getElementById('modalContainer').classList.add('hidden');
 }
@@ -224,10 +227,10 @@ function switchPlayer() {
 	if (currentPlayer == players[0]) {
 		//change turn, first player is always Red
 		currentPlayer = players[1];
-		color.className = 'yellow-text';
+		color.className = pokemonChoices[playerColor2] + '-text';
 	} else {
 		currentPlayer = players[0];
-		color.className = 'red-text';
+		color.className = pokemonChoices[playerColor1] + '-text';
 	}
 	color.textContent = currentPlayer;
 }
@@ -235,12 +238,20 @@ function switchPlayer() {
 function addPlayer() {
 	if (playerNum < 2) {
 		players.push(document.getElementById('name').value);
+		var pokemon = document.getElementById('pokemon');
+		if (playerNum === 0) {
+			playerColor1 = pokemon.options[pokemon.selectedIndex].textContent;
+			pokemon.remove(pokemon.selectedIndex);
+		} else if (playerNum === 1) {
+			playerColor2 = pokemon.options[pokemon.selectedIndex].textContent;
+		}
 		document.getElementById('name').value = '';
 		document.getElementById('labelName').textContent = 'Player 2 Name:';
 		playerNum++;
 		if (playerNum === 2) {
 			document.getElementById('playerContainer').classList.add('hidden');
 			currentPlayer = players[0];
+			color.className = pokemonChoices[playerColor1] + '-text';
 			document.getElementById('color').textContent = currentPlayer;
 			countdown = setInterval(handleTime, 1000);
 		}
