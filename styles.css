@@ -87,8 +87,7 @@ button {
 }
 
 .blue {
-	background-color: blue;
-	background-size: contain;
+	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-image: url("squirtle.jpg");
