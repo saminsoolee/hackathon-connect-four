@@ -139,7 +139,7 @@ function playerWins() {
 	if (currentPlayer == players[0]) {
 		winMessage.className = pokemonChoices[playerColor1] + '-text';
 	} else {
-		winMessage.className = pokemonChoices[playerColor1] + '-text';
+		winMessage.className = pokemonChoices[playerColor2] + '-text';
 	}
 	document.getElementById('modalContainer').classList.remove('hidden');
 	clearInterval(countdown);
