@@ -12,7 +12,7 @@
     <h1><img src="h1-image.png" alt="title"></h1>
     <div class="wrapper">
     <div class="timer"><p>Time Left:</p><h1 class="time">20</h1></div>
-    <h2 >Current Player: <span id="color" class="red-text"></span></h2>
+    <h2 >Current Player: <span id="color"></span></h2>
     <p id="error"></p>
 
         <div class="buttonContainer">
@@ -31,8 +31,19 @@
     </div>
     <div id="playerContainer" >
         <div id="playerModal">
-            <label for="name" id="labelName">Player 1 Name:</label>
-            <input type="text" id="name" name="name">
+            <div id='playerName'>
+                <label for="name" id="labelName">Player 1 Name:</label>
+                <input type="text" id="name" name="name">
+            </div>
+            <div id="choices">
+                <label for="pokemon">Choose a Pokemon:</label>
+                <select name="pokemon" id="pokemon">
+                    <option value="pikachu">Pikachu</option>
+                    <option value="charmander">Bulbasaur</option>
+                    <option value="bulbasaur">Squirtle</option>
+                    <option value="squirtle">Charmander</option>
+                </select>
+            </div>
             <button id="enter">Enter</button>
         </div>
     </div>

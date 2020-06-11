@@ -87,16 +87,15 @@ button {
 }
 
 .blue {
-	background-color:blue;
-	background-size:contain;
+	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-image: url("squirtle.jpg");
 }
 
 .green {
-	background-color:green;
-	background-size:cover;
+	background-color: green;
+	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-image: url("bulbasaur.png");
@@ -114,6 +113,21 @@ button {
 	-webkit-text-stroke-width: 1px;
 	-webkit-text-stroke-color: black;
 }
+
+.green-text {
+	color: black;
+	-webkit-text-fill-color: lightgreen;
+	-webkit-text-stroke-width: 1px;
+	-webkit-text-stroke-color: black;
+}
+
+.blue-text {
+	color: black;
+	-webkit-text-fill-color: lightskyblue;
+	-webkit-text-stroke-width: 1px;
+	-webkit-text-stroke-color: black;
+}
+
 #modalContainer,
 #playerContainer {
 	text-align: center;
@@ -141,6 +155,7 @@ button {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	flex-wrap: wrap;
 }
 
 #labelName,
