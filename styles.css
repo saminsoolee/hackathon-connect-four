@@ -138,7 +138,10 @@ button {
 	height: 100%;
 }
 
-#modal,
+.fireworks{
+	display:inline;
+	max-width: 100px;
+}
 #playerModal {
 	margin: auto;
 	margin-top: 350px;
@@ -147,6 +150,18 @@ button {
 	background-color: rgba(236, 100, 75, 1);
 	border-radius: 10px;
 	padding: 50px;
+	box-shadow: 5px 5px black;
+	line-height: 5rem;
+}
+
+#modal{
+	margin: auto;
+	margin-top: 350px;
+	height: 250px;
+	width: 400px;
+	background-color: rgba(236, 100, 75, 1);
+	border-radius: 10px;
+	padding: 10px;
 	box-shadow: 5px 5px black;
 	line-height: 5rem;
 }
@@ -164,7 +179,8 @@ button {
 }
 
 #win {
-	margin: 20px;
+	margin: 10px;
+	display:inline;
 }
 
 #enter {
