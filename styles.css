@@ -4,7 +4,7 @@
 }
 
 body {
-	background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2)), url("background-image.png");
+	background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2)), url("images-gifs/background-image.png");
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -63,7 +63,7 @@ button {
 	border-width: 1px;
 	border-style: solid;
 	background-color: white;
-	background-image: url("pokeball.png");
+	background-image: url("images-gifs/Pokeball.png");
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: contain;
@@ -72,7 +72,7 @@ button {
 
 .red {
 	background-color: crimson;
-	background-image: url("charmander.png");
+	background-image: url("images-gifs/charmander.png");
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: contain;
@@ -80,7 +80,7 @@ button {
 
 .yellow {
 	background-color: yellow;
-	background-image: url("pikachu.png");
+	background-image: url("images-gifs/pikachu.png");
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -90,7 +90,7 @@ button {
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
-	background-image: url("squirtle.jpg");
+	background-image: url("images-gifs/squirtle.jpg");
 }
 
 .green {
@@ -98,7 +98,7 @@ button {
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
-	background-image: url("bulbasaur.png");
+	background-image: url("images-gifs/bulbasaur.png");
 }
 
 .red-text {
