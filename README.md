@@ -1,4 +1,4 @@
-# hackathon-1_Connect_Four_Game
+# Pokemon Connect Four Game
 
 For this hackathon, you and your team will be collaborating to build a Connect Four game. 
 ## Requirements
